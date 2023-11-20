@@ -25,18 +25,18 @@ const localGaurdianValidatorSchema = z.object({
 const studentValidationSchema = z.object({
   id: z.string(),
   name: studentNameValidationSchema,
-  gender:z.enum([ 'male' , 'female' ,'other']),
+  gender: z.enum(['male', 'female', 'other']),
   dateOfBirth: z.date(),
   email: z.string().email(),
-  contactNo:z.string(),
-  emergencyContact:z.string(),
-  bloodGroup:z.enum([ 'A+', 'A-' , 'B' , 'B-' , 'AB' , 'O+' , 'O-']),
-  presentAddress:z.string(),
-  permanentAddress:z.string(),
-  gaurdian:gaurdainValidationSchema,
-  localGaurdian:localGaurdianValidatorSchema,
-  profileImg:z.string(),
-  isActive:z.enum(['active' ,'blocked']).default('active')
+  contactNo: z.string(),
+  emergencyContact: z.string(),
+  bloodGroup: z.enum(['A+', 'A-', 'B', 'B-', 'AB', 'O+', 'O-']),
+  presentAddress: z.string(),
+  permanentAddress: z.string(),
+  gaurdian: gaurdainValidationSchema,
+  localGaurdian: localGaurdianValidatorSchema,
+  profileImg: z.string(),
+  isActive: z.enum(['active', 'blocked']).default('active'),
 });
 
 export default studentValidationSchema;
