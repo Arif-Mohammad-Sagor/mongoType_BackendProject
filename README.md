@@ -7,5 +7,5 @@
 6) google how to setup eslint with typescript in vs code
 7) In this step you will set up Prettier like es lint
 8) Aftering everything setting up, In this stage you will create moduels folder under src folder and under moduels you will create a student folder
-9) You will have to create first interface.student.ts file first under student folder where you will create interfaces or types for your data
-10) 
+9) You will have to create first interface.student.ts file under student folder where you will create interfaces or types for your data and export them for further use
+10) In this stage you have create a student.validator.ts where you will validate your data usng ZOD VALIDATOR npm package 
