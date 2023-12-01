@@ -23,8 +23,14 @@
 1) insteadd of declaring req,res,next types directly we can use RequestHanlder from express while writing controllers.
 
 2) we can use a Higher Order Function to avoid trycatch{} block repeatation.This higher order function resolve a promise and return another function.Obviously, that is why it is called a higher order function.If it faces any error it will be cauth in the .catch section.To implement this you must implement a global error hanlder first.
-
+https://i.imgur.com/x1pDbgn.png
 12.2::
 ======
 1) We will shift  the catchAsync Higher Order Function into utils folder and will export from there.
-2) 
+
+12.3: 
+=====
+1) Through a middlewere function we can't sent any arguments what's why we have to convert the normal function into a higher order function so that we can send any parameters through it.Since middlewere function only can accpet req,res and next arguments
+2) We will create a middlewere call validateRequest. It will validate data before sending to controllers obviously it will be a higher order function so that we can send it a validated data and we have to use it 
+before controller Function
+

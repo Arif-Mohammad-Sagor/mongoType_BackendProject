@@ -18,7 +18,7 @@ export type TlocalGaurdian = {
 };
 
 export type TStudent = {
-  userId: string;
+  userId:string;
   name: TStudentName;
   user: Types.ObjectId;
   gender: 'male' | 'female' | 'other';
@@ -32,7 +32,6 @@ export type TStudent = {
   gaurdian: TGaurdian;
   localGaurdian: TlocalGaurdian;
   profileImg?: string;
-  isActive: 'active' | 'blocked';
 };
 
 //for creating static

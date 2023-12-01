@@ -29,7 +29,7 @@ const localGaurdianSchema = new Schema<TlocalGaurdian>({
 });
 
 const StudentSchema = new Schema<TStudent>({
-  userId: { type: String },
+  userId:{type:String},
   name: nameSchema,
   user: {
     type: Schema.Types.ObjectId,
@@ -47,7 +47,6 @@ const StudentSchema = new Schema<TStudent>({
   permanentAddress: { type: String, required: true },
   gaurdian: GaurdianSchema,
   localGaurdian: localGaurdianSchema,
-  isActive: { type: String, required: true },
 });
 
 export const studentModel = model<TStudent>('Student', StudentSchema);
