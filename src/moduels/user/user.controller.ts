@@ -1,11 +1,15 @@
-import { NextFunction, Request, Response } from 'express';
+import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { userServices } from './user.services';
 
+const catchAsync = (fn: RequestHandler) => {
+  return (req: Request, res: Response, next: NextFunction) => {
+    Promise.resolve(fn(req, res, next)).catch((err) => next(err));
+  };
+};
 // why we are creating student instead of user
-const createStudent = async (req: Request, res: Response,next:NextFunction) => {
-  try {
+const createStudent = catchAsync(
+  async (req, res, next) => {
     const { password, student: studentData } = req.body;
-    // console.log(req.body);
     //     const zodParsedData = studentValidationSchema.parse(student);
     const result = await userServices.createStudentIntoDB(
       password,
@@ -16,10 +20,8 @@ const createStudent = async (req: Request, res: Response,next:NextFunction) => {
       message: 'Student is Created',
       data: result,
     });
-  } catch (error) {
-    next(error)
-  }
-};
+  },
+);
 
 export const userControllers = {
   createStudent,
