@@ -23,7 +23,7 @@ const localGaurdianValidatorSchema = z.object({
   address: z.string(),
 });
 const studentValidationSchema = z.object({
-  id: z.string(),
+  userId: z.string(),
   name: studentNameValidationSchema,
   gender: z.enum(['male', 'female', 'other']),
   dateOfBirth: z.date(),

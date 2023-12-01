@@ -1,3 +1,4 @@
+import { Model, Types } from 'mongoose';
 
 export type TStudentName = {
   firstName: string;
@@ -17,8 +18,9 @@ export type TlocalGaurdian = {
 };
 
 export type TStudent = {
-  id: string;
+  userId: string;
   name: TStudentName;
+  user: Types.ObjectId;
   gender: 'male' | 'female' | 'other';
   dateOfBirth: Date;
   email: string;
@@ -32,3 +34,9 @@ export type TStudent = {
   profileImg?: string;
   isActive: 'active' | 'blocked';
 };
+
+//for creating static
+
+export interface StudentModel extends Model<TStudent> {
+  isUserExists(userId: string): Promise<TStudent | null>;
+}

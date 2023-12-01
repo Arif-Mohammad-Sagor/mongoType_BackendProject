@@ -7,12 +7,11 @@ import {
 } from './interface.student';
 
 const nameSchema = new Schema<TStudentName>({
-  firstName: { 
+  firstName: {
     type: String,
-    required:[true,'First name is required'],
-    trim:true,
-
-   },
+    required: [true, 'First name is required'],
+    trim: true,
+  },
   middleName: { type: String },
   lastName: { type: String, required: true },
 });
@@ -30,8 +29,14 @@ const localGaurdianSchema = new Schema<TlocalGaurdian>({
 });
 
 const StudentSchema = new Schema<TStudent>({
-  id: { type: String },
+  userId: { type: String },
   name: nameSchema,
+  user: {
+    type: Schema.Types.ObjectId,
+    required: [true, 'User is required'],
+    unique: true,
+    ref: 'User',
+  },
   gender: { type: String, required: true },
   dateOfBirth: { type: Date },
   email: { type: String, required: true },
