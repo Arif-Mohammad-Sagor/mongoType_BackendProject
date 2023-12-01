@@ -34,3 +34,7 @@ https://i.imgur.com/x1pDbgn.png
 2) We will create a middlewere call validateRequest. It will validate data before sending to controllers obviously it will be a higher order function so that we can send it a validated data and we have to use it 
 before controller Function
 
+12.4 
+=====
+1) create an academicSemester interface and a model
+
