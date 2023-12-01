@@ -1,14 +1,9 @@
-import { NextFunction, Request, RequestHandler, Response } from 'express';
 import { userServices } from './user.services';
+import catchAsync from '../../utils/catchAsync';
 
-const catchAsync = (fn: RequestHandler) => {
-  return (req: Request, res: Response, next: NextFunction) => {
-    Promise.resolve(fn(req, res, next)).catch((err) => next(err));
-  };
-};
 // why we are creating student instead of user
 const createStudent = catchAsync(
-  async (req, res, next) => {
+  async (req, res,) => {
     const { password, student: studentData } = req.body;
     //     const zodParsedData = studentValidationSchema.parse(student);
     const result = await userServices.createStudentIntoDB(
