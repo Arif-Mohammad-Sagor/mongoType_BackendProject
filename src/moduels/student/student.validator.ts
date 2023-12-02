@@ -40,6 +40,7 @@ const createStudentValidationSchema = z.object({
       gaurdian: gaurdainValidationSchema,
       localGaurdian: localGaurdianValidatorSchema,
       profileImg: z.string(),
+      admissionSemester: z.string(),
     }),
   }),
 });

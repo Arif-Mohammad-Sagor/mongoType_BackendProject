@@ -29,13 +29,18 @@ const localGaurdianSchema = new Schema<TlocalGaurdian>({
 });
 
 const StudentSchema = new Schema<TStudent>({
-  userId:{type:String},
+  userId: { type: String },
   name: nameSchema,
   user: {
     type: Schema.Types.ObjectId,
     required: [true, 'User is required'],
     unique: true,
     ref: 'User',
+  },
+  admissionSemester: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'AcademicSemester',
   },
   gender: { type: String, required: true },
   dateOfBirth: { type: Date },

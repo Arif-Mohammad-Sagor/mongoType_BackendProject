@@ -14,3 +14,17 @@ export const createAcademicSemesterValidationSchema = z.object({
     endMonth: z.enum([...Months] as [string, ...string[]]),
   }),
 });
+
+export const updateAcademicSemesterValidationSchema = z.object({
+  body: z.object({
+    name: z
+      .enum([...academicSemesterNames] as [string, ...string[]])
+      .optional(),
+    code: z
+      .enum([...academicSemesterCodes] as [string, ...string[]])
+      .optional(),
+    year: z.string().optional(),
+    startMonth: z.enum([...Months] as [string, ...string[]]).optional(),
+    endMonth: z.enum([...Months] as [string, ...string[]]).optional(),
+  }),
+});

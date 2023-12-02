@@ -50,3 +50,13 @@ create an academicSemester service
 In this module we will validate academic semester's data because in the same year we can't create two semester. That's why we will chack this using Mongoose pre middlewere inside the model section.
 
 we will also validate if the semester name and code are valid and this validation will de done in service file
+
+12.9
+======
+ Add admission semester into student interface , model and validation
+ 12.10
+ =======
+  Implement generateStudentId() utility
+  12.11
+  =======
+  Complete generateStudent() utility
