@@ -1,23 +1,23 @@
-type TMonth =
+export type TMonths =
   | 'January'
   | 'February'
   | 'March'
   | 'April'
   | 'May'
-  | 'june'
+  | 'June'
   | 'July'
   | 'August'
   | 'September'
   | 'October'
   | 'November'
   | 'December';
-export type TAcademicSemesterName = 'Autumn' | 'Summer' | 'Fall';
-export type TAcademicSemesterCode = '01' | '02' | '03';
+export type TAcademicSemesterNames = 'Autumn' | 'Summer' | 'Fall';
+export type TAcademicSemesterCodes = '01' | '02' | '03';
 
 export interface IAcademinSemester {
-  name: TAcademicSemesterName;
-  code: TAcademicSemesterCode;
+  name: TAcademicSemesterNames;
+  code: TAcademicSemesterCodes;
   year: Date;
-  startMonth: TMonth;
-  endMonth: TMonth;
+  startMonth: TMonths;
+  endMonth: TMonths;
 }
