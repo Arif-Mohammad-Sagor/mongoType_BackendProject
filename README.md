@@ -40,6 +40,9 @@ before controller Function
 
 12.6 
 =====
-1) create an academicSemester constants so that we can use it in different places and an academicSemesterValidationSchema.
+1) create an academicSemester constants so that we can use it in different places and an academicSemesterValidationSchema. acad route and controllers 
 
+12.7 
+==== 
+create an academicSemester service
 
