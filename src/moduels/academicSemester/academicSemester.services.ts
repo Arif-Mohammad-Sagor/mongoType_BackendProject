@@ -1,11 +1,17 @@
-import { IAcademinSemester } from "./academicSemester.interface"
-import { academicSemesterModel } from "./academicSemester.model"
+import { academicSemesterNameCodeMapper } from './academicSemester.constants';
+import { IAcademinSemester } from './academicSemester.interface';
+import { academicSemesterModel } from './academicSemester.model';
 
-const createAcademinSemesterDB=async(data:IAcademinSemester)=>{
-const result = await academicSemesterModel.create(data);
-return result;
-}
+const createAcademinSemesterDB = async (payload: IAcademinSemester) => {
+  
+  if (academicSemesterNameCodeMapper[payload.name] !== payload.code) {
+    throw new Error('Invalid Academic Code !');
+  }
 
-export const AcademicSemesterServices={
-  createAcademinSemesterDB
-}
+  const result = await academicSemesterModel.create(payload);
+  return result;
+};
+
+export const AcademicSemesterServices = {
+  createAcademinSemesterDB,
+};

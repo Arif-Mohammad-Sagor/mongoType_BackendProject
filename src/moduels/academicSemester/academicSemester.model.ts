@@ -19,6 +19,17 @@ const academinSemesterSchema = new Schema<IAcademinSemester>(
   },
 );
 
+academinSemesterSchema.pre('save', async function (next) {
+  const isAcademicSemesterExits = await academicSemesterModel.findOne({
+    year: this.year,
+    name: this.name,
+  });
+  if (isAcademicSemesterExits) {
+    throw new Error('Semester Already Exits !');
+  }
+  next();
+});
+
 export const academicSemesterModel = model<IAcademinSemester>(
   'AcademicSemester',
   academinSemesterSchema,
