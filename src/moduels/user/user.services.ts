@@ -1,6 +1,5 @@
 import config from '../../config';
 import { academicSemesterModel } from '../academicSemester/academicSemester.model';
-
 import { TStudent } from '../student/interface.student';
 import { studentModel } from '../student/model.student';
 import { IUser } from './user.interfece';
@@ -18,6 +17,9 @@ const createStudentIntoDB = async (password: string, payload: TStudent) => {
   //find adminssion semester 
   const admissionSemester = await academicSemesterModel.findById(payload.admissionSemester)
 
+if(!admissionSemester){
+ throw new Error('Invalid admission semester');
+}
   // set generated id
 userData.userId = await generateStudentId(admissionSemester);
 // create a user

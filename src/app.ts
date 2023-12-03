@@ -5,6 +5,8 @@ import globalErrorHandler from './middleweres/globalErrorHandler';
 import { studentRouter } from './moduels/student/route.student';
 import { userRouter } from './moduels/user/user.route';
 import { academicRouter } from './moduels/academicSemester/academicSemester.route';
+import { acadFacultyRouter } from './moduels/acadFaculty/acadFaculty.route';
+import { departmentRouter } from './moduels/acadDepartment/acadDept.route';
 
 const app: Application = express();
 
@@ -16,6 +18,8 @@ app.use(cors());
 app.use(studentRouter.router);
 app.use(userRouter);
 app.use(academicRouter);
+app.use(acadFacultyRouter)
+app.use(departmentRouter)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');

@@ -60,3 +60,21 @@ we will also validate if the semester name and code are valid and this validatio
   12.11
   =======
   Complete generateStudent() utility
+
+  module-13.1 
+  ===========
+  In this module we will fix some bug related to creating academicSemester 
+
+  module:13.5:
+  ===========
+  1) create academic Department 
+
+module:13.7:
+===========
+1) create two pre middlewere hooks inside department model to add validation before creating and updating Department.
+module:13.8:
+===========
+1) In this error use populate to get refferenced id's detail information. Basically,learned how to & why use populate.
+2) In this module , create a custom AppError to through error.
+
+
