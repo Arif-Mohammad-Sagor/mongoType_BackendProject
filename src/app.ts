@@ -16,10 +16,10 @@ app.use(cors());
 
 // Application api
 app.use(studentRouter.router);
-app.use(userRouter);
-app.use(academicRouter);
 app.use(acadFacultyRouter)
 app.use(departmentRouter)
+app.use(academicRouter);
+app.use(userRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');

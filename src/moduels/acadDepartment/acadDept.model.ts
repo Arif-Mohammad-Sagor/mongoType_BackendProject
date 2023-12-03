@@ -20,7 +20,7 @@ acadDeptSchema.pre('save', async function (next) {
   const isDepartmentExists = await acadDeptModel.findOne({
     name: this.name,
   });
-  if (!isDepartmentExists) {
+  if (isDepartmentExists) {
     throw new ErrorApp(httpStatus.BAD_REQUEST,'This Department already exits ! ');
   }
   next();

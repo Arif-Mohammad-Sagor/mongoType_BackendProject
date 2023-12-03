@@ -74,7 +74,22 @@ module:13.7:
 1) create two pre middlewere hooks inside department model to add validation before creating and updating Department.
 module:13.8:
 ===========
-1) In this error use populate to get refferenced id's detail information. Basically,learned how to & why use populate.
+1) In this error use populate to get refferenced id's detail information. Basically,learned how to & why use populate.Normally populate is used in a situation where you need to operate {two write  operation}.
 2) In this module , create a custom AppError to through error.
+
+module:13.9:
+===========
+Transaction & Rollback's steps :
+
+1) create a session using mongoose 
+2) write the code within trycatch block
+3) session.startTransaction();
+4) user or anything create korer somay array er moddy info pass korty haby.and comma,{session} o pass korty haby. jykhany jykhany create haby shykhnay shykhany toiri korty haby.
+4.1) But findAndUpdate korer somay array dity haby na last{er moddy dilei haby}
+5) await session.commitTransaction();
+6) await session.endSession();
+7)catch section => await session.abortTransaction()
+8) await session.endSession();
+
 
 

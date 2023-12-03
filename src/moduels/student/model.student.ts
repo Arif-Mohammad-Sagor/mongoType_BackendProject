@@ -42,6 +42,11 @@ const StudentSchema = new Schema<TStudent>({
     required: true,
     ref: 'AcademicSemester',
   },
+  academicDepartment:{
+    type:Schema.Types.ObjectId,
+    required:true,
+    ref:'acadDepartment'
+  },
   gender: { type: String, required: true },
   dateOfBirth: { type: Date },
   email: { type: String, required: true },

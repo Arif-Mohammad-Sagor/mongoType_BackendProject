@@ -33,6 +33,7 @@ export type TStudent = {
   localGaurdian: TlocalGaurdian;
   profileImg?: string;
   admissionSemester: Types.ObjectId;
+  academicDepartment:Types.ObjectId;
 };
 
 //for creating static
