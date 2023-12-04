@@ -5,9 +5,32 @@ import { TStudent } from './interface.student';
 import { studentModel } from './model.student';
 import ErrorApp from '../../errors/ErrorApp';
 
-const getAllStudentsFromDB = async () => {
-  const result = await studentModel
-    .find()
+const getAllStudentsFromDB = async (query:Record<string,unknown>) => {
+// coping so that we can use it to filter 
+  const queryOjb= {
+    ...query
+  }
+   let searchTerm= '';
+  if(query?.searchTerm){
+    searchTerm=query?.searchTerm as string;
+  }
+  // for searching part and method chaining
+const searchQuery = studentModel.find({
+  $or: ['email', 'name.firstName', 'presentAddress'].map((field) => ({
+    [field]: { $regex: searchTerm, $options: 'i' },
+  })),
+});
+// this arr for filtering options
+const excludesQueries =['searchTerm','sort','limit'];
+excludesQueries.forEach(elem=> delete queryOjb[elem]);
+
+// sorting functionality 
+let sort ='-createdAt';
+if(query.sort){
+  sort=query.sort as string;
+}
+const sortedQuery = searchQuery
+    .find(queryOjb)
     .populate('admissionSemester')
     .populate({
       path: 'academicDepartment',
@@ -15,7 +38,12 @@ const getAllStudentsFromDB = async () => {
         path: 'academicFaculty',
       },
     });
-
+  const limitedQuery =  sortedQuery.sort(sort);
+  let limit =5;
+  if(query.limit){
+    limit=query.limit as number;
+  }
+const result = await limitedQuery.limit(limit);
   return result;
 };
 

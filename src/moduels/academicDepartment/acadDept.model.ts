@@ -42,6 +42,6 @@ acadDeptSchema.pre('findOneAndUpdate', async function (next) {
 });
 
 export const acadDeptModel = model<IAcadDept>(
-  'academicDepartment',
+  'AcademicDepartment',
   acadDeptSchema,
 );

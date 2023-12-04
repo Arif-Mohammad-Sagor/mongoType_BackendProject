@@ -91,5 +91,14 @@ Transaction & Rollback's steps :
 7)catch section => await session.abortTransaction()
 8) await session.endSession();
 
+module13:7
+===========
+1) How to do raw searching 
+terms shoule be remembered. queryMethod() chaining?
 
+module-14:8;
+=============
+1) How to do raw filtering,sorting and limiting 
+
+9:22 secs raw filtering 
 
