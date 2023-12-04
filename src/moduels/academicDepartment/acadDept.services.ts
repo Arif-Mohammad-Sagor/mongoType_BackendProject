@@ -1,4 +1,4 @@
-import { IAcadDept } from '../acadDepartment/acadDept.interface';
+import { IAcadDept } from './acadDept.interface';
 import { acadDeptModel } from './acadDept.model';
 
 const createAcadDeptIntoDB = async (payload: IAcadDept) => {

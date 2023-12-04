@@ -3,10 +3,11 @@ import mongoose from 'mongoose';
 import { userModel } from '../user/user.model';
 import { TStudent } from './interface.student';
 import { studentModel } from './model.student';
-import ErrorApp from '../../errorsApp/ErrorApp';
+import ErrorApp from '../../errors/ErrorApp';
 
 const getAllStudentsFromDB = async () => {
-  const result = await studentModel.find()
+  const result = await studentModel
+    .find()
     .populate('admissionSemester')
     .populate({
       path: 'academicDepartment',
@@ -19,7 +20,8 @@ const getAllStudentsFromDB = async () => {
 };
 
 const getSingleStudentFromDB = async (id: string) => {
-  const result = await studentModel.findOne({ id })
+  const result = await studentModel
+    .findOne({ id })
     .populate('admissionSemester')
     .populate({
       path: 'academicDepartment',
@@ -36,7 +38,6 @@ const updateStudentIntoDB = async (id: string, payload: Partial<TStudent>) => {
   const modifiedUpdatedData: Record<string, unknown> = {
     ...remainingStudentData,
   };
-
 
   if (name && Object.keys(name).length) {
     for (const [key, value] of Object.entries(name)) {
@@ -58,10 +59,14 @@ const updateStudentIntoDB = async (id: string, payload: Partial<TStudent>) => {
 
   // console.log(modifiedUpdatedData);
 
-  const result = await studentModel.findOneAndUpdate({ id }, modifiedUpdatedData, {
-    new: true,
-    runValidators: true,
-  });
+  const result = await studentModel.findOneAndUpdate(
+    { id },
+    modifiedUpdatedData,
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
   return result;
 };
 

@@ -11,6 +11,6 @@ const acadFacultySchema = new Schema<IAcadFaculty>(
 );
 
 export const acadFacultyModel = model<IAcadFaculty>(
-  'acadFaculty',
+  'AcademicFaculty',
   acadFacultySchema,
 );
