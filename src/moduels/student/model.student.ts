@@ -13,7 +13,7 @@ const nameSchema = new Schema<TStudentName>({
     trim: true,
   },
   middleName: { type: String },
-  lastName: { type: String, required: true },
+  lastName: { type: String, required: [true, 'First name is required'] },
 });
 const GaurdianSchema = new Schema<TGaurdian>({
   fatherName: { type: String, required: true },
@@ -42,10 +42,10 @@ const StudentSchema = new Schema<TStudent>({
     required: true,
     ref: 'AcademicSemester',
   },
-  academicDepartment:{
-    type:Schema.Types.ObjectId,
-    required:true,
-    ref:'acadDepartment'
+  academicDepartment: {
+    type: Schema.Types.ObjectId,
+    required: true,
+    ref: 'acadDepartment',
   },
   gender: { type: String, required: true },
   dateOfBirth: { type: Date },

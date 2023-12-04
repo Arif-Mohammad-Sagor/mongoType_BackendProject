@@ -22,7 +22,7 @@ app.use(academicRouter);
 app.use(userRouter);
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
+  // res.send('Hello World!');
 });
 
 app.use(globalErrorHandler);

@@ -5,5 +5,6 @@ import { studentValidations } from "../student/student.validator";
 const router =Router();
 router
 .post('/create-student',
-validateRequest(studentValidations.createStudentValidationSchema),userControllers.createStudent);
+validateRequest(studentValidations.createStudentValidationSchema),
+userControllers.createStudent);
 export const userRouter=router;
