@@ -7,6 +7,8 @@ import { userRouter } from './moduels/user/user.route';
 import { academicRouter } from './moduels/academicSemester/academicSemester.route';
 import { acadFacultyRouter } from './moduels/academicFaculty/acadFaculty.route';
 import { departmentRouter } from './moduels/academicDepartment/acadDept.route';
+import { facultyRotuer } from './moduels/faculty/faculty.route';
+import { courseRouter } from './moduels/Course/course.route';
 
 const app: Application = express();
 
@@ -19,10 +21,12 @@ app.use(studentRouter.router);
 app.use(acadFacultyRouter);
 app.use(departmentRouter);
 app.use(academicRouter);
+app.use(facultyRotuer);
+app.use(courseRouter.router);
 app.use(userRouter);
 
 app.get('/', (req: Request, res: Response) => {
-  // res.send('Hello World!');
+  res.send('Hello World!');
 });
 
 app.use(globalErrorHandler);
