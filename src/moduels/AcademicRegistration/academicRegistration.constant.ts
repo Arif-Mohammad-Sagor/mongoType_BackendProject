@@ -1,0 +1,1 @@
+export const registrationStatusEnum = ['ONGOING','UPCOMING','CLOSED'];

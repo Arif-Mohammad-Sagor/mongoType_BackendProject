@@ -9,6 +9,7 @@ import { acadFacultyRouter } from './moduels/academicFaculty/acadFaculty.route';
 import { departmentRouter } from './moduels/academicDepartment/acadDept.route';
 import { facultyRotuer } from './moduels/faculty/faculty.route';
 import { courseRouter } from './moduels/Course/course.route';
+import { academicSemesterRegistrationRoute } from './moduels/AcademicRegistration/academicRegistration.route';
 
 const app: Application = express();
 
@@ -24,6 +25,7 @@ app.use(academicRouter);
 app.use(facultyRotuer);
 app.use(courseRouter.router);
 app.use(userRouter);
+app.use(academicSemesterRegistrationRoute)
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
