@@ -1,10 +1,10 @@
-import { faculty } from "./faculty.model"
+import { modelFaculty } from './faculty.model';
 
-const getAllFaculty =async()=>{
-const result = await faculty.find();
-return result;
-}
+const getAllFaculty = async () => {
+  const result = await modelFaculty.find();
+  return result;
+};
 
-export const facultyServices ={
+export const facultyServices = {
   getAllFaculty,
-}
+};

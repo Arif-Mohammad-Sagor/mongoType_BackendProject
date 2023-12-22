@@ -81,23 +81,29 @@ const facultySchema = new Schema<IFaculty>({
   isDeleted: { type: Boolean, default: false },
   profileImg: { type: String },
 });
+
+export const modelFaculty = model<IFaculty, facultyModel>(
+  'faculty',
+  facultySchema,
+);
+
 // checking this user already exists ?
-facultySchema.statics.isUserExists=async function(id:string){
-  const ExistingUser =await faculty.findById(id);
+facultySchema.statics.isUserExists = async function (id: string) {
+  const ExistingUser = await modelFaculty.findById(id);
   return ExistingUser;
-}
-facultySchema.pre('find',function(next){
-this.find({isDeleted:{$ne:true}})
-next();
-})
-facultySchema.pre('findOne',function(next){
-  this.findById({isDeleted:{$ne:true}});
+};
+facultySchema.pre('find', function (next) {
+  this.find({ isDeleted: { $ne: true } });
+  next();
+});
+facultySchema.pre('findOne', function (next) {
+  this.findById({ isDeleted: { $ne: true } });
   next();
 });
 
-facultySchema.pre('aggregate',function(next){
-  this.pipeline().unshift({$match:{isDeleted:{$ne:true}}})
+facultySchema.pre('aggregate', function (next) {
+  this.pipeline().unshift({ $match: { isDeleted: { $ne: true } } });
   next();
-})
+});
 
-export const faculty = model<IFaculty, facultyModel>('faculty', facultySchema);
+
