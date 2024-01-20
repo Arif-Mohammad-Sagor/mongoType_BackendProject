@@ -1,5 +1,4 @@
 
-
 export const daysArray= [
   'Saturday',
   'Sunday',

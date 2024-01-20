@@ -11,12 +11,15 @@ import { facultyRotuer } from './moduels/faculty/faculty.route';
 import { courseRouter } from './moduels/Course/course.route';
 import { academicSemesterRegistrationRoute } from './moduels/AcademicRegistration/academicRegistration.route';
 import { offeredCourseRoute } from './moduels/OfferedCourse/offeredCourse.route';
+import { AuthRouter } from './moduels/Auth/auth.routes';
+
 
 const app: Application = express();
 
 // parsers
 app.use(express.json());
 app.use(cors());
+// {origin:'http//:localhost/5173',credentials:true}
 
 // Application api
 app.use(studentRouter.router);
@@ -28,6 +31,7 @@ app.use(courseRouter.router);
 app.use(userRouter);
 app.use(academicSemesterRegistrationRoute);
 app.use(offeredCourseRoute);
+app.use(AuthRouter);
 
 app.get('/', (req: Request, res: Response) => {
   res.send('Hello World!');
